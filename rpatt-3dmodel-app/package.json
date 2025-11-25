@@ -30,6 +30,7 @@
     "@types/node": "^20.8.7",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
+    "@types/three": "0.174.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
     "copy-webpack-plugin": "^11.0.0",
@@ -72,10 +73,16 @@
     "@grafana/runtime": "^12.3.0",
     "@grafana/schema": "^12.3.0",
     "@grafana/ui": "^12.3.0",
+    "@react-three/drei": "9.92.7",
+    "@react-three/fiber": "8.15.12",
+    "@react-three/postprocessing": "2.19.1",
+    "jeasings": "^0.0.16",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "react-router-dom": "^6.22.0",
-    "rxjs": "7.8.2"
+    "rxjs": "7.8.2",
+    "three": "0.160.0",
+    "three-stdlib": "2.28.9"
   },
   "packageManager": "yarn@4.6.0"
 }
