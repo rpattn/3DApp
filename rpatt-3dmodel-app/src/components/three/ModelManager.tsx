@@ -5,9 +5,10 @@ import { ModelComponent, ModelConfig } from './ModelComponent';
 interface ModelManagerProps {
   models: ModelConfig[];
   highlightIndex?: number;
+  assetBasePath: string;
 }
 
-export function ModelManager({ models, highlightIndex }: ModelManagerProps) {
+export function ModelManager({ models, highlightIndex, assetBasePath }: ModelManagerProps) {
   const preparedModels = useMemo(() => {
     return models
       .filter((model) => model.show !== false)
@@ -20,7 +21,7 @@ export function ModelManager({ models, highlightIndex }: ModelManagerProps) {
         <Outline blur visibleEdgeColor={0xff0000} edgeStrength={3} width={1} />
       </EffectComposer>
       {preparedModels.map((model) => (
-        <ModelComponent key={model.name} config={model} />
+        <ModelComponent key={model.name} config={model} assetBasePath={assetBasePath} />
       ))}
     </Selection>
   );

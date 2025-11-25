@@ -6,19 +6,22 @@ import { PerspectiveCamera as ThreePerspectiveCamera, Vector3 } from 'three';
 import { OrbitControls as OrbitControlsImpl } from 'three-stdlib';
 import { ModelConfig } from './ModelComponent';
 import { ModelManager } from './ModelManager';
+import { GroundPlane } from './GroundPlane';
+import { Ocean } from './Ocean';
 
-const DEFAULT_ENVIRONMENT = 'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/4k/autumn_field_puresky_4k.hdr';
+const DEFAULT_ASSET_BASE = '/ddm-files';
+const DEFAULT_ENVIRONMENT_RELATIVE = 'public/autumn_field_puresky_4k.hdr';
 
 const DEFAULT_MODELS: ModelConfig[] = [
   {
     name: 'Foundation',
-    url: 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF/Duck.gltf',
-    position: [0, -2, 0],
+    url: 'data/demo/generic_fou.glb',
+    position: [0, 0, 0],
     show: true,
   },
   {
-    name: 'Helmet',
-    url: 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf',
+    name: 'Pin piles',
+    url: 'data/demo/generic_pin_piles.glb',
     position: [4, -3, 0],
     show: true,
   },
@@ -41,19 +44,31 @@ interface SceneCanvasProps {
   environmentUrl?: string;
   highlightIndex?: number;
   ambientLight?: number;
+  assetBasePath?: string;
+  showGround?: boolean;
+  showWater?: boolean;
+  waterPosition?: [number, number, number];
 }
 
 export function SceneCanvas({
   models = DEFAULT_MODELS,
-  environmentUrl = DEFAULT_ENVIRONMENT,
+  environmentUrl,
   highlightIndex,
   ambientLight = 0.45,
+  assetBasePath = DEFAULT_ASSET_BASE,
+  showGround = true,
+  showWater = true,
+  waterPosition = [0, -10, 0],
 }: SceneCanvasProps) {
   const cameraRef = useRef<ThreePerspectiveCamera>(null);
   const controlsRef = useRef<OrbitControlsImpl | null>(null);
 
   const cameraPosition = useMemo(() => new Vector3(...CAMERA_START.position), []);
   const cameraTarget = useMemo(() => new Vector3(...CAMERA_START.target), []);
+  const resolvedEnvironment = useMemo(
+    () => environmentUrl ?? `${assetBasePath.replace(/\/$/, '')}/${DEFAULT_ENVIRONMENT_RELATIVE}`,
+    [assetBasePath, environmentUrl]
+  );
 
   useEffect(() => {
     const camera = cameraRef.current;
@@ -79,10 +94,21 @@ export function SceneCanvas({
       <PerspectiveCamera ref={cameraRef} makeDefault position={CAMERA_START.position} fov={50} far={10000} />
       <JEasingUpdater />
       <Suspense fallback={null}>
-        <ModelManager models={models} highlightIndex={highlightIndex} />
+        <ModelManager models={models} highlightIndex={highlightIndex} assetBasePath={assetBasePath} />
         <OrbitControls ref={controlsRef as any} enableDamping dampingFactor={0.2} />
-        <Environment files={environmentUrl} background />
-        <Sky distance={45000} sunPosition={[1000, 1000, 0]} inclination={10} azimuth={5} mieCoefficient={0.05} mieDirectionalG={10} rayleigh={0.7} turbidity={1} />
+        <Environment files={resolvedEnvironment} background />
+        <Sky
+          distance={45000}
+          sunPosition={[1000, 1000, 0]}
+          inclination={10}
+          azimuth={5}
+          mieCoefficient={0.05}
+          mieDirectionalG={10}
+          rayleigh={0.7}
+          turbidity={1}
+        />
+        <Ocean position={waterPosition} assetBasePath={assetBasePath} show={showWater} />
+        <GroundPlane assetBasePath={assetBasePath} show={showGround} />
       </Suspense>
       <ambientLight intensity={ambientLight} />
     </Canvas>
