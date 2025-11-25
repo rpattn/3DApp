@@ -1,0 +1,262 @@
+{
+    "inspData": [
+        {
+            "category": "WTG",
+            "subCategory": "WTG",
+            "component": "WTG",
+            "componentDetail": "WTG",
+            "inspection": "Structural integrity",
+            "detail": "• Structural damages\n",
+            "procedure": "GVI",
+            "acceptance": "No damaged parts; no visible deformations",
+            "interval": "≤ X year",
+            "__index": "515993f4-9da7-4988-a277-d698d63190e5"
+        },
+        {
+            "category": "Substructure",
+            "subCategory": "Primary Steel",
+            "component": "Monopile",
+            "componentDetail": "above water",
+            "inspection": "Structural integrity",
+            "detail": "• Structural damages\n",
+            "procedure": "GVI",
+            "acceptance": "No damaged parts; no visible deformations",
+            "interval": "≤ X year",
+            "__index": "515993f4-9da7-4988-a277-d698d63180e5"
+        },
+        {
+            "category": "Substructure",
+            "subCategory": "Primary Steel",
+            "component": "Monopile",
+            "componentDetail": "below water",
+            "inspection": "Structural integrity",
+            "detail": "• Structural damages\n",
+            "procedure": "GVI",
+            "acceptance": "No damaged parts; no visible deformations",
+            "interval": " ≤ X years",
+            "__index": "5feea842-3ab5-41ac-adec-e11673bb64a7"
+        },
+        {
+            "category": "Substructure",
+            "subCategory": "Primary Steel",
+            "component": "Monopile",
+            "inspection": "Corrosion Protection Coating",
+            "detail": "• Paint condition above water",
+            "procedure": "GVI",
+            "acceptance": "General corrosion allowance in atmospheric zone: X mm; in splash zone: X mm; no cracks in the coating layer; no spalling of the paint layer",
+            "interval": "≤ X year",
+            "__index": "c57c9290-7b28-4716-903f-3990db8f6be4",
+            "componentDetail": "Structure"
+        },
+        {
+            "category": "Substructure",
+            "subCategory": "Primary Steel",
+            "component": "Monopile",
+            "inspection": "Marine growth",
+            "detail": "Within the first two years of operation higher interval and sample size recommended. After these two years intervals and sample sizes might be relaxed based on condition.\n\nMeasurements shall be taken from the same area in order to establish a trend in growth rate.",
+            "procedure": "MGM",
+            "acceptance": "General marine growth thickness allowance between +X mMSL and -X mMSL: X mm; below -X mMSL: X mm",
+            "interval": "≤ X year,  Condition based: recomm. ≤ X years (After X years of operation of the substructure)",
+            "__index": "b0d9d80d-5c8b-4bb1-bf47-77fe1270fd3d",
+            "componentDetail": "Structure"
+        },
+        {
+            "category": "Substructure",
+            "subCategory": "Primary Steel",
+            "component": "Transition Piece",
+            "inspection": "Corrosion Protection Coating (fatigue sensitive areas)",
+            "detail": "• Paint condition of\n\nwelded connections and connection points\n\n",
+            "procedure": "DVI",
+            "acceptance": "No corrosion as general corrosion allowance in atmospheric zone: X mm; no cracks in the coating layer; no spalling of the paint layer or rust stains",
+            "interval": "≤ X year",
+            "__index": "97daa251-7cb1-44b5-86be-126e53fb4929",
+            "componentDetail": "Structure"
+        },
+        {
+            "category": "Substructure",
+            "subCategory": "Primary Steel",
+            "component": "Transition Piece",
+            "inspection": "Structural integrity",
+            "detail": "• Structural damages\n• Missing parts or components ",
+            "procedure": "GVI",
+            "acceptance": "No damaged parts; no missing parts; no visible deformations",
+            "interval": "≤ X year",
+            "__index": "9774ba92-a927-44ca-9e99-7d5006de4b2a",
+            "componentDetail": "Structure"
+        }
+    ],
+    "allPoints": [
+        {
+            "info": [
+                "Root"
+            ],
+            "transform": [
+                "0.000000",
+                "0.000000",
+                "0.000000"
+            ],
+            "rotation": [
+                "0.000000",
+                "0.000000",
+                "0.000000"
+            ],
+            "__index": 0,
+            "showAnnotation": false
+        },
+        {
+            "info": [
+                "WTG"
+            ],
+            "transform": [
+                "-0.000000",
+                "13.0",
+                "-0.000000"
+            ],
+            "rotation": [
+                "0.000000",
+                "-70.000000",
+                "0.000000"
+            ],
+            "__index": 1,
+            "showAnnotation": false
+        },
+        {
+            "info": [
+                "PS-TP"
+            ],
+            "transform": [
+                "0.000000",
+                "13.000000",
+                "0.000000"
+            ],
+            "rotation": [
+                "0.000000",
+                "0.000000",
+                "0.000000"
+            ],
+            "__index": 2,
+            "showAnnotation": false
+        },
+        {
+            "info": [
+                "PS-MP"
+            ],
+            "transform": [
+                "0.000000",
+                "13.00000",
+                "0.000000"
+            ],
+            "rotation": [
+                "0.000000",
+                "0.000000",
+                "0.000000"
+            ],
+            "__index": 3,
+            "showAnnotation": false
+        },
+        {
+            "info": [
+                "Water"
+            ],
+            "transform": [
+                "0.000000",
+                "-38.270000",
+                "0.000000"
+            ],
+            "rotation": [
+                "0.000000",
+                "-90.000000",
+                "0.000000"
+            ],
+            "__index": 4,
+            "showAnnotation": false
+        }
+    ],
+    "rootPoints": [
+        {
+            "name": "Root",
+            "id": 0,
+            "showModel": false
+        },
+        {
+            "name": "WTG",
+            "id": 1,
+            "showModel": true,
+            "cameraPos": [
+                290.451550181727356,
+                150.67636443970601,
+                -1.7173271623044313,
+                1.5
+            ],
+            "lookAt": [
+                0,
+                150,
+                0
+            ]
+        },
+        {
+            "name": "Transition Piece",
+            "id": 2,
+            "showModel": true,
+            "cameraPos": [
+                29.451550181727356,
+                17.67636443970601,
+                -1.7173271623044313,
+                1.5
+            ],
+            "lookAt": [
+                0,
+                1,
+                0
+            ]
+        },
+        {
+            "name": "Monopile",
+            "id": 3,
+            "showModel": true,
+            "cameraPos": [
+                52.875452725860505,
+                -30.513046829418341,
+                -5.527061220555874,
+                1
+            ],
+            "lookAt": [
+                0,
+                -37,
+                0
+            ]
+        },
+        {
+            "name": "Water",
+            "id": 4,
+            "showModel": true
+        }
+    ],
+    "rootPointsAll": [
+        {
+            "name": "Root",
+            "id": 0,
+            "showModel": false
+        },
+        {
+            "name": "WTG",
+            "id": 1,
+            "showModel": true
+        },
+        {
+            "name": "Transition Piece",
+            "id": 2,
+            "showModel": true
+        },
+        {
+            "name": "Monopile",
+            "id": 3,
+            "showModel": true
+        },
+        {
+            "name": "Water",
+            "id": 4,
+            "showModel": true
+        }
+    ]
+}

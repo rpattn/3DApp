@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Root",
+        "id": 0,
+        "showModel": false
+    },
+    {
+        "name": "WTG",
+        "id": 1,
+        "showModel": true
+    },
+    {
+        "name": "Transition Piece",
+        "id": 2,
+        "showModel": true
+    },
+    {
+        "name": "Monopile",
+        "id": 3,
+        "showModel": true
+    },
+    {
+        "name": "Water",
+        "id": 4,
+        "showModel": true
+    }
+]

@@ -1,0 +1,251 @@
+.infoimg {
+    max-width: 15px;
+    max-height: 15px;
+    z-index: 3;
+}
+
+.inspectionInfo {
+    color: #009df0;
+    position: relative;
+    display: inline-block;
+    max-width: 20px;
+    /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.inspectionInfo .inspectionInfoBox {
+    visibility: hidden;
+    width: 12rem;
+    background-color: #555555ea;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -6rem;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.inspectionInfoBox {
+    left: 5px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+}
+
+.inspectionInfoBox div {
+    margin-top: 5px;
+}
+
+.infoicon {
+    background-color: white;
+    border: 1px solid gray;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1px;
+    z-index: 100;
+}
+
+.infoicon p {
+    font-size: x-small;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    z-index: 100;
+
+}
+
+/* Tooltip arrow */
+.inspectionInfo .inspectionInfoBox::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.inspectionInfo:hover .inspectionInfoBox {
+    visibility: visible;
+    opacity: 1;
+}
+
+.inspectionTable, .tableRow, .inspectionTableRow, .selectedRow {
+    width: 100% !important;
+}
+
+.inspectionTableRow {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.displayFlexDiv {
+    display: flex !important;
+    flex-direction: column;
+}
+.displayFlex {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.displayFlexImg {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.displayFlex span {
+    display: flex;
+    flex-direction: row;
+    display: flex !important;
+    min-width: 40px;
+}
+
+
+
+.canvas {
+    z-index: 1;
+}
+
+
+.inspectionTable select {
+    width: 90%;
+    max-width: 120px;
+}
+
+select::after {
+    width: 300px;
+}
+
+
+
+.pagination {
+    margin-top: 12px;
+    padding-top: 6px;
+    border-top: 1px solid gray;
+    font-size: small;
+}
+
+
+
+
+.inspectionTable div{
+    text-align: left;
+    vertical-align: top;
+
+}
+
+.resizer {
+    display: inline-block;
+    background: white;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    padding-right: 10px;
+    margin-right: 7px;
+    right: 0;
+    top: 0;
+    transform: translateX(50%);
+    z-index: 1;
+    touch-action: none;
+}
+
+
+.inspectionTableRow {
+    border: 1px solid transparent;
+    font-size: small;
+    display: flex;
+}
+.flexgrow1, .flexgrow5 {
+    padding: 1px;
+}
+
+
+.tableRow {
+    border-bottom: 1px solid gray !important;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: small;
+}
+.tableRow select {
+    border-bottom: 1px solid #e3e1d8 !important;
+    font-weight: normal;
+}
+
+
+.checkboxRow {
+    display: flex;
+}
+
+.checkboxRow p {
+    min-width: 50px;
+}
+
+.hidden {
+    display: block;
+    height: 2rem;
+}
+
+.hoverRow:hover {
+    cursor: pointer;
+    border-top: 1px solid grey !important;
+    border-bottom: 1px solid grey !important;
+}
+
+
+
+
+.selectedRow {
+    background: lightblue;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    font-size: small;
+}
+
+.blueNamefalse {
+    color: gray;
+}
+
+/* <select> styles */
+select {
+    /* Reset */
+
+    border: 0;
+    outline: 0;
+    font: inherit;
+    /* Personalize */
+    border-radius: 0.25em;
+    cursor: pointer;
+    /* Remove IE arrow */
+    /* Remove focus outline */
+    /* <option> colors */
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+
+}
+
+
+select:focus {
+    outline: none;
+}
+
+select option {
+    color: inherit;
+    background-color: var(--option-bg);
+}
