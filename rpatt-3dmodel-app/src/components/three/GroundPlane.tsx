@@ -9,7 +9,7 @@ interface GroundPlaneProps {
 }
 
 export function GroundPlane({ assetBasePath, show = true }: GroundPlaneProps) {
-  const textureUrl = useMemo(() => buildAssetUrl(assetBasePath, 'public/ground.jpg'), [assetBasePath]);
+  const textureUrl = useMemo(() => buildAssetUrl(assetBasePath, 'ground.jpg'), [assetBasePath]);
   const texture = useLoader(TextureLoader, textureUrl);
 
   useEffect(() => {

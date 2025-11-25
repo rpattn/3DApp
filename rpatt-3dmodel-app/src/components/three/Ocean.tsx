@@ -27,7 +27,7 @@ export function Ocean({ position, assetBasePath, show = true }: OceanProps) {
   const [waterNormals, setWaterNormals] = useState<any>();
 
   useEffect(() => {
-    textureLoader.load(buildAssetUrl(assetBasePath, 'public/waternormals.jpeg'), (texture) => {
+    textureLoader.load(buildAssetUrl(assetBasePath, 'waternormals.jpeg'), (texture) => {
       const loadedNormals = texture;
       loadedNormals.wrapS = RepeatWrapping;
       loadedNormals.wrapT = RepeatWrapping;

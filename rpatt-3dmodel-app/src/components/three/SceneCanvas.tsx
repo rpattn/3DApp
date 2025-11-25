@@ -10,7 +10,9 @@ import { GroundPlane } from './GroundPlane';
 import { Ocean } from './Ocean';
 
 const DEFAULT_ASSET_BASE = '/ddm-files';
-const DEFAULT_ENVIRONMENT_RELATIVE = 'public/autumn_field_puresky_4k.hdr';
+// Assets in ddm-files are served from its /public root, so we avoid the extra
+// "public" segment when building URLs.
+const DEFAULT_ENVIRONMENT_RELATIVE = 'autumn_field_puresky_4k.hdr';
 
 const DEFAULT_MODELS: ModelConfig[] = [
   {
