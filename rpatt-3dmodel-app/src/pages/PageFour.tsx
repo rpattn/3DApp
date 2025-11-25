@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/css';
 import { GrafanaTheme2, PageLayoutType } from '@grafana/data';
 import { LinkButton, useStyles2 } from '@grafana/ui';
-import { ROUTES } from '../constants';
+import { PLUGIN_ASSET_BASE, ROUTES } from '../constants';
 import { prefixRoute } from '../utils/utils.routing';
 import { testIds } from '../components/testIds';
 import { PluginPage } from '@grafana/runtime';
@@ -10,7 +10,7 @@ import { SceneCanvas } from '../components/three/SceneCanvas';
 
 function PageFour() {
   const s = useStyles2(getStyles);
-  const assetBasePath = '/ddm-files';
+  const assetBasePath = PLUGIN_ASSET_BASE;
 
   return (
     <PluginPage layout={PageLayoutType.Canvas}>
@@ -25,8 +25,9 @@ function PageFour() {
               <p>
                 This page mirrors the ddm-files three.js scene graph: it uses @react-three/fiber for the Canvas,
                 @react-three/drei helpers for the camera, sky, and environment, and @react-three/postprocessing for
-                model highlighting. Models, ground textures, and water normals are loaded directly from the sibling
-                <code>/ddm-files</code> project so the Grafana plugin renders the same GLB assets and ocean/ground layers.
+                model highlighting. Models, ground textures, and water normals are loaded through the plugin backend at
+                <code>{assetBasePath}</code>, which serves the ddm-files assets from inside the Grafana container so
+                Docker deployments do not have to mount the source project.
               </p>
             </div>
             <div className={s.canvasShell}>

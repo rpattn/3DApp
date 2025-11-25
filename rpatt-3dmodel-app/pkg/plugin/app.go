@@ -22,11 +22,14 @@ var (
 // App is an example app plugin with a backend which can respond to data queries.
 type App struct {
 	backend.CallResourceHandler
+	assetRoot string
 }
 
 // NewApp creates a new example *App instance.
 func NewApp(_ context.Context, _ backend.AppInstanceSettings) (instancemgmt.Instance, error) {
-	var app App
+	app := App{
+		assetRoot: defaultAssetRoot(),
+	}
 
 	// Use a httpadapter (provided by the SDK) for resource calls. This allows us
 	// to use a *http.ServeMux for resource calls, so we can map multiple routes

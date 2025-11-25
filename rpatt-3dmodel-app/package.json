@@ -2,6 +2,7 @@
   "name": "3-dmodel",
   "version": "1.0.0",
   "scripts": {
+    "prebuild": "yarn prepare:ddm-assets",
     "build": "webpack -c ./.config/webpack/webpack.config.ts --env production",
     "dev": "webpack -w -c ./.config/webpack/webpack.config.ts --env development",
     "test": "jest --watch --onlyChanged",
@@ -11,7 +12,8 @@
     "lint:fix": "yarn run lint --fix && prettier --write --list-different .",
     "e2e": "playwright test",
     "server": "docker compose up --build",
-    "sign": "npx --yes @grafana/sign-plugin@latest"
+    "sign": "npx --yes @grafana/sign-plugin@latest",
+    "prepare:ddm-assets": "node scripts/prepare-ddm-assets.js"
   },
   "author": "Rpatt",
   "license": "Apache-2.0",

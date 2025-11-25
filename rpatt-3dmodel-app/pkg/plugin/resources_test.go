@@ -3,9 +3,12 @@ package plugin
 import (
 	"bytes"
 	"context"
-	"github.com/grafana/grafana-plugin-sdk-go/backend"
 	"net/http"
+	"os"
+	"path/filepath"
 	"testing"
+
+	"github.com/grafana/grafana-plugin-sdk-go/backend"
 )
 
 // mockCallResourceResponseSender implements backend.CallResourceResponseSender
@@ -35,6 +38,18 @@ func TestCallResource(t *testing.T) {
 	if !ok {
 		t.Fatal("inst must be of type *App")
 	}
+
+	assetRoot := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(assetRoot, "data", "demo"), 0o755); err != nil {
+		t.Fatalf("create asset dir: %v", err)
+	}
+
+	assetPath := filepath.Join(assetRoot, "ground.jpg")
+	if err := os.WriteFile(assetPath, []byte("hello assets"), 0o644); err != nil {
+		t.Fatalf("write asset: %v", err)
+	}
+
+	app.assetRoot = assetRoot
 
 	// Set up and run test cases
 	for _, tc := range []struct {
@@ -66,6 +81,19 @@ func TestCallResource(t *testing.T) {
 			body:      []byte(`{"message":"ok"}`),
 			expStatus: http.StatusOK,
 			expBody:   []byte(`{"message":"ok"}`),
+		},
+		{
+			name:      "serve asset 200",
+			method:    http.MethodGet,
+			path:      "assets/ground.jpg",
+			expStatus: http.StatusOK,
+			expBody:   []byte("hello assets"),
+		},
+		{
+			name:      "reject asset post",
+			method:    http.MethodPost,
+			path:      "assets/ground.jpg",
+			expStatus: http.StatusMethodNotAllowed,
 		},
 		{
 			name:      "get non existing handler 404",

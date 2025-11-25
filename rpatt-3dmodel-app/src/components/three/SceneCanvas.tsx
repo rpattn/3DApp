@@ -8,10 +8,11 @@ import { ModelConfig } from './ModelComponent';
 import { ModelManager } from './ModelManager';
 import { GroundPlane } from './GroundPlane';
 import { Ocean } from './Ocean';
+import { PLUGIN_ASSET_BASE } from '../../constants';
 
-const DEFAULT_ASSET_BASE = '/ddm-files';
-// Assets in ddm-files are served from its /public root, so we avoid the extra
-// "public" segment when building URLs.
+const DEFAULT_ASSET_BASE = `${PLUGIN_ASSET_BASE}`;
+// Assets are served via the backend resources endpoint so the Grafana Docker
+// container can host the ddm-files models and textures alongside the plugin.
 const DEFAULT_ENVIRONMENT_RELATIVE = 'autumn_field_puresky_4k.hdr';
 
 const DEFAULT_MODELS: ModelConfig[] = [
